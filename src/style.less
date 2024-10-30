@@ -1,0 +1,237 @@
+@primary-color: #3498db;
+@secondary-color: #2ecc71;
+@text-color: #333;
+@background-color: #f4f8fb;
+@font-family: Arial, sans-serif;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: @font-family;
+  color: @text-color;
+  background-color: @background-color;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+header {
+  background-color: @primary-color;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+
+    li {
+      display: inline-block;
+      margin: 0 15px;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1em;
+
+        &:hover {
+          text-decoration: underline;
+          color: darken(white, 10%);
+        }
+      }
+    }
+  }
+}
+
+.intro {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-text {
+  max-width: 500px;
+
+  h2 {
+    color: @primary-color;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1em;
+    color: @text-color;
+    line-height: 1.6;
+  }
+
+  .button {
+    display: inline-block;
+    background-color: @primary-color;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+
+    &:hover {
+      background-color: darken(@primary-color, 10%);
+    }
+  }
+}
+
+h2 {
+  color: @primary-color;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+section {
+  flex: 1;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about, .projects, .contact {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+}
+
+.projects .project {
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    color: @secondary-color;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: darken(@text-color, 10%);
+    font-size: 1em;
+  }
+}
+
+.contact-form {
+  width: 100%;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: @primary-color;
+        outline: none;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+
+  .button {
+    background-color: @primary-color;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%;
+
+    &:hover {
+      background-color: darken(@primary-color, 10%);
+    }
+  }
+}
+
+footer {
+  background-color: @primary-color;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9em;
+  margin-top: auto;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
