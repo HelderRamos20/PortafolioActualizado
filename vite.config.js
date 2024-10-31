@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import * as glob from "glob";
 import path, { resolve } from "node:path";
-import purgecss from 'vite-plugin-purgecss';
+import htmlPurge from 'vite-plugin-purgecss';
+
 
 const getHtmlEntries = ()=>{
     return Object.fromEntries(
@@ -16,32 +17,15 @@ const getHtmlEntries = ()=>{
 
 export default defineConfig(
     {
-    appType: 'mpa',
-    base: "/miportafolio/",
-    build: {
-    rollupOptions: {
-      input: {
-        input: getHtmlEntries()
-        /*main: './index.html',
-        about: './pages/about.html',
-        projects: './pages/projects.html',
-        contact: './pages/contact.html',*/
+        appType: 'mpa',
+        base: "/miportafolio/",
+        build: {
+            rollupOptions: {
+              input: getHtmlEntries()
+        },
       },
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      less: {
-        javascriptEnabled: true,
-      },
-    },
-  },
-  plugins: [
-    purgecss({
-      content: [
-        './pages/about.html/contact.html/proyects.html',
-        './src/main.js/',     
-      ],
-    }),
-  ],
-});
+      plugins: [
+        htmlPurge({}),
+      ]
+    }
+);
